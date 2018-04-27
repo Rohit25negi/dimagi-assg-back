@@ -1,13 +1,5 @@
 """
-asdf
-asd
-f
-asd
-fasd
-f
-sd
-f
-
+Manager file
 """
 import os
 import sys
