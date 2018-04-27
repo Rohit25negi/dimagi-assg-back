@@ -16,12 +16,13 @@ from learning.resources.base_resource import BaseResource
 
 class Register(BaseResource):
     '''
-    asdfsad fsd fsa df asd fas df sd fas df dsf dsfs
+    Register resource handles the request at /register endpoint
     '''
 
     def post(self):
         """
-        asdfsadfa sdf sd fasd fs dfad sasd asd f
+        Method handles the request at /register endpoint and responsible
+        for registering a new entry for a new user.
         """
         parser = reqparse.RequestParser()
         parser.add_argument('first_name', required=True)
@@ -41,7 +42,17 @@ class Register(BaseResource):
 
     def add_user(self, arg_dict):
         """
-        asdf asdf asd fasd fads f
+        Method adds the user into the database.
+
+        Parameters
+        -----------
+        arg_dict: dict
+            dictionary containing the user information
+        
+        Returns
+        --------
+        user: UserModel
+            Object of User Model
         """
         user = UserModel(**arg_dict)
         user.save_to_db()

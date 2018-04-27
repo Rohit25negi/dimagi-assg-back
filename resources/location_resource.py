@@ -45,9 +45,10 @@ class LocationResource(BaseResource):
 
         user_email = request_arguments.get('email')
         password = request_arguments.get('password')
-        country = request_arguments.get('country')
-        city = request_arguments.get('city')
-        
+        country = resource_helper.unicode_to_str(request_arguments.get('country'))
+        city = resource_helper.unicode_to_str(request_arguments.get('city'))
+
+
         response = dict()
 
         if resource_helper.user_exists(user_email) and resource_helper.verify_user(user_email, password):
@@ -88,6 +89,8 @@ class LocationResource(BaseResource):
             dictionary, the response from the geoname api. this dict
             contains the information which matched with the given city and country
         """
+
+
         search_query = '{}, {}'.format(city, country)
         user_name = os.getenv('GEONAME_USER')
         user_pass = os.getenv('GEONAME_PASS')

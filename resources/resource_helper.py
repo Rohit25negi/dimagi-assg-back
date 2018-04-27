@@ -72,3 +72,10 @@ def verify_user(email,password):
         return UserModel.verify_hash(password,user.password)
 
     return False
+
+
+def unicode_to_str(string):
+    if isinstance(string, unicode):
+        string = string.encode('UTF-8')
+        
+    return string

@@ -21,9 +21,6 @@ from learning.application_vars import DB
 from learning.configuration import configure_app
 
 
-
-
-
 class CreateTables(Command):
     """Fills in predefined data to DB"""
 
@@ -33,7 +30,7 @@ class CreateTables(Command):
         """
         DB.create_all()
         DB.session.commit()
-        
+
 configure_app(APP)
 
 manager = Manager(APP)
